@@ -1,7 +1,7 @@
 # Trabalho Análise de Desempenho
 
 **Integrantes:**
-Erick Schultz Ceresa 
+Erick Schultz Ceresa, Miguel Abichequer
 
 
 ---
