@@ -37,6 +37,8 @@ Porcentagem velocidade da emulação (100% = Tempo real)
 Jogo: The Last of Us (Mais pesado na CPU)
 - 5 execuções para cada área fixa
 - Compartilhamento de save-states se possível
+
+
 ![TLOU](https://upload.wikimedia.org/wikipedia/en/a/a6/The_Last_of_Us_Listen_Mode.jpg)
 
 ## Métodos de registro e cálculo
