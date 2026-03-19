@@ -2,6 +2,9 @@
 
 # Variação de desempenho de subsistema no Emulador RPCS3 por variação de paralelização, extensões vetoriais e arquiteturas diversas
 
+## Integrantes:
+Erick Schultz Ceresa, Miguel Abichequer, Victor Furusho Vally
+
 ## Objeto computacional:
 Emulador RPCS3 emulando arquitetura Cell Broadband Engine dos Playstation 3 em CPUs x86_64.
 
