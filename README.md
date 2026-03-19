@@ -27,9 +27,9 @@ Verificar o escalonamento da performance em relação ao número de núcleos, ex
 <!--newpage-->
 ## Métricas
 Medição das seguintes métricas:
-Tempo de execução de PPU e SPEs usando biblioteca chrono (modificação do código fonte).
-Frametime em ms total.
-Porcentagem velocidade da emulação (100% = Tempo real)
+- Tempo de execução de PPU e SPEs usando biblioteca chrono (modificação do código fonte).
+- Frametime em ms total.
+- Porcentagem velocidade da emulação (100% = Tempo real)
 
 ## Métodos de análise:
 - Modificação do código fonte para fazer output de métricas de tempo e frametime
