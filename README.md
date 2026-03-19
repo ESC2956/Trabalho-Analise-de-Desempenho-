@@ -9,9 +9,13 @@ Emulador RPCS3 emulando arquitetura Cell Broadband Engine dos Playstation 3 em C
 A CPU do Playstation 3 é chamada de Cell Broadband Engine. Ela consiste em um processador principal, chamado de Power Processing Unit ou PPU e oito Synergistic Processing Elements, ou SPEs.
 A PPU é responsável por comandar as SPEs, que são especializadas em tarefas vetoriais de banda larga (até 128 bits).
 
+![CellBE](https://upload.wikimedia.org/wikipedia/commons/3/34/CELL_BE_processor_PS3_board.jpg)
+
 ### RPCS3
 O RPCS3 é um emulador de código aberto desenvolvido para processadores x86_64.
 Para emular a Cell Broadband Engine, é necessário a utilização de artifícios modernos da arquitetura x86_64, visto que a CPU sendo emulada é muito exótica.
+
+![RPCS3](https://upload.wikimedia.org/wikipedia/commons/1/1d/RPCS3_vector_logo.svg)
 
 ## Objetivos:
 Medir o desempenho da emulação de um Playstation 3 usando o emulador RPCS3.
@@ -33,6 +37,7 @@ Porcentagem velocidade da emulação (100% = Tempo real)
 Jogo: The Last of Us (Mais pesado na CPU)
 - 5 execuções para cada área fixa
 - Compartilhamento de save-states se possível
+![TLOU](https://upload.wikimedia.org/wikipedia/en/a/a6/The_Last_of_Us_Listen_Mode.jpg)
 
 ## Métodos de registro e cálculo
 Fork do emulador (RPCS3) modificado
