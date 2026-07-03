@@ -1,0 +1,196 @@
+---
+title: "Testes_RPCS3_Preliminar"
+output: html_document
+---
+
+
+## Descrição
+O documento apresenta dados captados no emulador RPSC3, esses dados estão presentes em arquivos .csv;
+Para cada cenário de teste foram feitas X execuções essas que serão agrupadas por e serão calculadas média e desvio dos dados;
+A cena utilizada para captação dos dados foi uma que contém varios inimigos/entidades na tela.
+Jogo: The Last of Us
+Ambiente de teste:
+  NixOS 25.11
+  CPU: Ryzen 9 9900X
+  GPU: RX 7800 XT
+
+## Libraries usadas
+```{r  message=FALSE, warning=FALSE}
+library(readr)
+library(ggplot2)
+library(dplyr)
+```
+
+## Leitura dos arquivos .csv e calcula da média e desvio
+Lê todos os arquivos do mesmo cenario e experimento e faz a média dos valores utilizando "group_by(elapsed)".
+```{r}
+csv_avx_12_cores <- list.files(path = "./Experiments/12_cores", pattern = "*.csv", full.names = TRUE)
+csv_avx_6_cores <- list.files(path = "./Experiments/6_cores", pattern = "*.csv", full.names = TRUE)
+csv_avx_4_cores <- list.files(path = "./Experiments/4_cores", pattern = "*.csv", full.names = TRUE)
+
+raw_data_12_cores <- do.call(rbind, lapply(csv_avx_12_cores, read.csv))
+raw_data_6_cores <- do.call(rbind, lapply(csv_avx_6_cores, read.csv))
+raw_data_4_cores <- do.call(rbind, lapply(csv_avx_4_cores, read.csv))
+
+mean_data_12_cores <- raw_data_12_cores %>%
+  group_by(elapsed_ms) %>%
+  summarise(
+    mean_frametime = mean(frametime_ms),
+    deviation_frametime = sd(frametime_ms),
+    mean_ppu = mean(ppu_usage),
+    deviation_ppu = sd(ppu_usage),
+    mean_spu = mean(spu_usage),
+    deviation_spu = sd(spu_usage)
+  )
+mean_data_6_cores <- raw_data_6_cores %>%
+  group_by(elapsed_ms) %>%
+  summarise(
+   mean_frametime = mean(frametime_ms),
+    deviation_frametime = sd(frametime_ms),
+    mean_ppu = mean(ppu_usage),
+    deviation_ppu = sd(ppu_usage),
+    mean_spu = mean(spu_usage),
+    deviation_spu = sd(spu_usage)
+  )
+mean_data_4_cores <- raw_data_4_cores %>%
+  group_by(elapsed_ms) %>%
+  summarise(
+   mean_frametime = mean(frametime_ms),
+    deviation_frametime = sd(frametime_ms),
+    mean_ppu = mean(ppu_usage),
+    deviation_ppu = sd(ppu_usage),
+    mean_spu = mean(spu_usage),
+    deviation_spu = sd(spu_usage)
+  )
+```
+## Graficos
+Comparação ppu_usage e spu_usage
+```{r message=FALSE, warning=FALSE}
+# 12 cores
+ggplot(mean_data_12_cores, aes(x = elapsed_ms)) +
+  geom_line(aes(y = mean_ppu, color = "PPU"), linewidth = 1) +
+  geom_point(aes(y = mean_ppu, color = "PPU"), size = 1.5) +
+  geom_errorbar(aes(ymin = mean_ppu - deviation_ppu,
+                    ymax = mean_ppu + deviation_ppu),
+                color = "black", width = 0.2, alpha = 0.7) +
+  geom_line(aes(y = mean_spu, color = "SPU"), linewidth = 1) +
+  geom_point(aes(y = mean_spu, color = "SPU"), size = 1.5) +
+  geom_errorbar(aes(ymin = mean_spu - deviation_spu,
+                    ymax = mean_spu + deviation_spu),
+                color = "black", width = 0.2, alpha = 0.7) +
+  scale_color_manual(values = c("PPU" = "blue", "SPU" = "red")) +
+  labs(title = "Uso de PPU e SPU ao longo do tempo",
+       subtitle = "12 cores",
+       x = "Tempo (ms)", y = "Uso (%)",
+       color = "Componente") +
+  scale_y_continuous(breaks = seq(0, 100, by = 5), expand = c(0, 0),limits = c(0,100)) +
+  theme_minimal()
+# 6 cores
+ggplot(mean_data_6_cores, aes(x = elapsed_ms)) +
+  geom_line(aes(y = mean_ppu, color = "PPU"), linewidth = 1) +
+  geom_point(aes(y = mean_ppu, color = "PPU"), size = 1.5) +
+  geom_errorbar(aes(ymin = mean_ppu - deviation_ppu,
+                    ymax = mean_ppu + deviation_ppu),
+                color = "black", width = 0.2, alpha = 0.7) +
+  geom_line(aes(y = mean_spu, color = "SPU"), linewidth = 1) +
+  geom_point(aes(y = mean_spu, color = "SPU"), size = 1.5) +
+  geom_errorbar(aes(ymin = mean_spu - deviation_spu,
+                    ymax = mean_spu + deviation_spu),
+                color = "black", width = 0.2, alpha = 0.7) +
+  scale_color_manual(values = c("PPU" = "blue", "SPU" = "red")) +
+  labs(title = "Uso de PPU e SPU ao longo do tempo",
+       subtitle = "6 cores",
+       x = "Tempo (ms)", y = "Uso (%)",
+       color = "Componente") +
+  scale_y_continuous(breaks = seq(0, 100, by = 5), expand = c(0, 0),limits = c(0,100)) +
+  theme_minimal()
+# 4 cores
+ggplot(mean_data_4_cores, aes(x = elapsed_ms)) +
+  geom_line(aes(y = mean_ppu, color = "PPU"), linewidth = 1) +
+  geom_point(aes(y = mean_ppu, color = "PPU"), size = 1.5) +
+  geom_errorbar(aes(ymin = mean_ppu - deviation_ppu,
+                    ymax = mean_ppu + deviation_ppu),
+                color = "black", width = 0.2, alpha = 0.7) +
+  geom_line(aes(y = mean_spu, color = "SPU"), linewidth = 1) +
+  geom_point(aes(y = mean_spu, color = "SPU"), size = 1.5) +
+  geom_errorbar(aes(ymin = mean_spu - deviation_spu,
+                    ymax = mean_spu + deviation_spu),
+                color = "black", width = 0.2, alpha = 0.7) +
+  scale_color_manual(values = c("PPU" = "blue", "SPU" = "red")) +
+  labs(title = "Uso de PPU e SPU ao longo do tempo",
+       subtitle = "4 cores",
+       x = "Tempo (ms)", y = "Uso (%)",
+       color = "Componente") +
+  scale_y_continuous(breaks = seq(0, 100, by = 5), expand = c(0, 0),limits = c(0,100)) +
+  theme_minimal()
+```
+
+## Explicação grafico 1
+Graficos que comparam média, com desvio, do uso das spus e ppus no mesmo tempo para diferentes números de cores. 
+Valor dado em porcentagem.
+Vemos um uso mais baixo tanto na ppu e spu em relação ao aumento do números de core, isso que era o esperado.
+
+###  Grafico 2 - Frametime
+```{r message=FALSE, warning=FALSE}
+# 12 cores
+ggplot(mean_data_12_cores, aes(x = elapsed_ms, y = mean_frametime)) +
+  geom_point(color = "blue", size = 1) +
+  geom_errorbar(aes(ymin = mean_frametime - deviation_frametime,
+                    ymax = mean_frametime + deviation_frametime),
+                width = 0.1, color = "black", alpha = 0.7) +
+  labs(title = "Frametime ao longo do tempo",
+       subtitle = "12 cores",
+       x = "Tempo (ms)", y = "Frametime (ms)") +
+  scale_y_continuous(breaks = seq(0, 40, by = 2), expand = c(0, 0),limits = c(0,40)) +
+  scale_x_continuous(breaks = seq(0, max(mean_data_12_cores$elapsed_ms), by = 5000), expand = c(0, 0)) +
+  geom_smooth(method = "loess", color = "red", se = FALSE, linewidth = 0.8) +
+  theme_minimal()
+# 6 cores
+ggplot(mean_data_6_cores, aes(x = elapsed_ms, y = mean_frametime)) +
+  geom_point(color = "blue", size = 1) +
+  geom_errorbar(aes(ymin = mean_frametime - deviation_frametime,
+                    ymax = mean_frametime + deviation_frametime),
+                width = 0.1, color = "black", alpha = 0.7) +
+  labs(title = "Frametime ao longo do tempo",
+       subtitle = "6 cores",
+       x = "Tempo (ms)", y = "Frametime (ms)") +
+  scale_y_continuous(breaks = seq(0, 40, by = 2), expand = c(0, 0),limits = c(0,40)) +
+  scale_x_continuous(breaks = seq(0, max(mean_data_6_cores$elapsed_ms), by = 5000), expand = c(0, 0)) +
+  geom_smooth(method = "loess", color = "red", se = FALSE, linewidth = 0.8) +
+  theme_minimal()
+# 4 cores
+ggplot(mean_data_4_cores, aes(x = elapsed_ms, y = mean_frametime)) +
+  geom_point(color = "blue", size = 1) +
+  geom_errorbar(aes(ymin = mean_frametime - deviation_frametime,
+                    ymax = mean_frametime + deviation_frametime),
+                width = 0.1, color = "black", alpha = 0.7) +
+  labs(title = "Frametime ao longo do tempo",
+       subtitle = "4 cores",
+       x = "Tempo (ms)", y = "Frametime (ms)") +
+  scale_y_continuous(breaks = seq(0, 40, by = 2),expand = c(0, 0),limits = c(0,40)) +
+  scale_x_continuous(breaks = seq(0, max(mean_data_4_cores$elapsed_ms), by = 5000), expand = c(0, 0)) +
+  geom_smooth(method = "loess", color = "red", se = FALSE, linewidth = 0.8) +
+  theme_minimal()
+mean_data_12_cores$cores <- "12 cores"
+mean_data_6_cores$cores <- "6 cores"
+mean_data_4_cores$cores <- "4 cores"
+
+all_data <- rbind(mean_data_12_cores, mean_data_6_cores, mean_data_4_cores)
+
+ggplot(all_data, aes(x = elapsed_ms, y = mean_frametime, color = cores)) +
+  geom_line(linewidth = 1) +
+  geom_errorbar(aes(ymin = mean_frametime - deviation_frametime,
+                    ymax = mean_frametime + deviation_frametime),
+                width = 0.1, color = "black", alpha = 0.7) +
+  scale_color_manual(values = c("12 cores" = "blue", "6 cores" = "red", "4 cores" = "darkgreen")) +
+  labs(title = "Frametime ao longo do tempo",
+       x = "Tempo (ms)", y = "Frametime (ms)",
+       color = "Configuração") +
+  scale_y_continuous(breaks = seq(0, 40, by = 2),expand = c(0, 0),limits = c(0,40)) +
+  scale_x_continuous(breaks = seq(0, max(mean_data_4_cores$elapsed_ms), by = 5000), expand = c(0, 0)) +
+  theme_minimal()
+```
+
+##  Explicação grafico 2
+Graficos com média e desvio do frametime ao longo do tempo para diferentes números de cores e um graficos juntando dados para melhor visualização.
+Através disso fica claro que aumentar os cores impacta no frametime durante a execução de um jogo, também vemos que no decorrer do tempo por conta de o emulador se estabilizar vemos um pequeno declinio no frametime para todos os números de cores testados.
