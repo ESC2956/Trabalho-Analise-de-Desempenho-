@@ -110,7 +110,8 @@ distintas. A primeira utiliza um processador AMD Ryzen 9 9900X, com 12
 núcleos e 24 threads, frequência base de 4,4 GHz e frequência máxima de
 5,6 GHz, acompanhado de uma GPU AMD Radeon RX 7800 XT. A segunda utiliza
 um processador Intel Core i5-10400F, com 6 núcleos e 12 threads,
-frequência base de 2,9 GHz e frequência máxima de 4,3 GHz.
+frequência base de 2,9 GHz e frequência máxima de 4,3 GHz e uma GPU RTX
+2060.
 
 Ambas as máquinas executam o sistema operacional NixOS. A compilação do
 RPCS3 e seu ambiente de execução foram feitas por meio do gerenciador de
@@ -198,14 +199,14 @@ maior variabilidade é observada. Na figura 6, o aumento do número de
 cores espelha a utilização, com a maior variabilidade de quadros vindo
 da configuração com 8 núcleos.
 
-Nota-se um grande número de outliers em 8 cores. Os outliers podem ser
-notados em 12 cores na figura 6, onde existem outliers mais extremos do
-que em 6 cores. Uma hipótese é que sejam causados pela utilização de
-dois complexos de núcleos diferentes. O Ryzen 9 9900X possui dois
-complexos no die contendo 6 cores cada, a desabilitação de 4 cores pela
-BIOS deve ser feita em 2 cores por complexo, assim sobrando 4 cores em
-cada. A comunicação entre os complexos pode estar causando os outlier.
-Isso pode ser explorado mais aprofundadamente em um próximo trabalho.
+Nota-se um grande número de outliers em 8 cores. Também podem ser
+notados em 12 cores na figura 6, onde são mais extremos do que em 6
+cores. Uma hipótese é que sejam causados pela utilização de dois
+complexos de núcleos diferentes. O Ryzen 9 9900X possui dois complexos
+no die contendo 6 cores cada, a desabilitação de 4 cores pela BIOS deve
+ser feita em 2 cores por complexo, assim sobrando 4 cores em cada. A
+comunicação entre os complexos pode estar causando os outlier. Isso pode
+ser explorado mais aprofundadamente em um próximo trabalho.
 
 Na figura 5 nota-se que em comparação com o Ryzen 9 9900X, o i5 10400f
 tem uma utilização parecida, embora mais variada. Podemos notar na
