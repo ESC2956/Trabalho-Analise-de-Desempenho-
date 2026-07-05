@@ -1,0 +1,238 @@
+---
+title: Impacto do número de cores e arquitetura de CPU no desempenho do emulador RPCS3
+author:
+  - name: Victor Furusho Vally
+    affiliation: Universidade Federal do Rio Grande do Sul
+  - name: Erick
+    affiliation: Universidade Federal do Rio Grande do Sul
+abstract: |
+  This is the abstract.
+
+  It consists of two paragraphs.
+bibliography: sigproc.bib
+csl: acm-sig-proceedings.csl
+output: rticles::acm_article
+lang: pt-BR
+---
+
+
+
+# Introdução 
+A emulação de hardware de arquiteturas diversas é um grande desafio na computação, mas um desafio que as comunidades open source rotinamente aceitam, principalmente para consoles de jogos, com o intuito de manter a biblioteca de software desses consoles preservada.
+
+O RPCS3 é um desses emuladores. A emulação do Playstation 3 é um desafio maior do que o comum para seus desenvolvedores, já que o Playstation 3 possui hardware exótico em sua arquitetura e difícil de mapear para arquiteturas atuais como x86_64.
+
+O Playstation 3 oferece vários componentes em operação paralela, os principais sendo: 8 unidades de processamento SIMD com alta vasão chamadas SPEs ou Synergistic Processing Elements, dentro das quais 6 podem ser utilizadas por software, uma é reservada para o OS e uma é desativada; um ring buffer que alimentar as SPEs com instruções e dados, chamado Element Interconnect Bus; e por fim um processador principal chamado de PPE, ou Power Processing Element. Todos com seu próprio cache e instruções.
+
+É fácil de perceber que implementar um sistema compatível em software é uma tarefa complicada. Não é apenas necessário que a arquitetura do emulador seja sólida, mas que o hardware host seja utilizado eficientemente para que a emulação ocorra em velocidades interagíveis. O maior obstáculo para a eficiência da emulação do Playstation 3 é o paralelismo, o que é espelhado na arquiteturo do console: no mínimo é necessário que ocorram 7 operações em paralelo, sem contar os componentes que cercam o complexo principal do processador e os segmentos do ring buffer. Por consequência, toda a demanda cai sobre a CPU do sistema host, o que é consolidado nos requisitos do RPCS3: uma grande disparidade entre o tier de performance da CPU comparada a CPU.
+
+Visamos explorar a relação entre o número de núcleos do processador host e a performance de emulação no emulador RPCS3. Utilizando um dos jogos mais exigentes no hardware do Playstation 3, The Last of Us, utilizando o tempo entre a geração de cada quadro, ou frametime, para contrastar a performance entre 6, 8 e 12 núcleos do mesmo processador. Também comparamos duas arquiteturas de processador com 6 núcleos.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.9\linewidth]{images/cell.jpg}
+\caption{Processador CELL}
+\label{fig:cell}
+\end{figure}
+
+
+# Avaliação
+
+O objetivo desta avaliação é quantificar o impacto do número de núcleos do processador hospedeiro e da arquitetura da CPU no desempenho do emulador RPCS3, com foco em variações de frametime sob condições controladas de execução.
+
+### Ambiente experimental
+
+Os experimentos foram conduzidos em duas plataformas computacionais distintas. A primeira utiliza um processador AMD Ryzen 9 9900X, com 12 núcleos e 24 threads, frequência base de 4,4 GHz e frequência máxima de 5,6 GHz, acompanhado de uma GPU AMD Radeon RX 7800 XT. A segunda utiliza um processador Intel Core i5-10400F, com 6 núcleos e 12 threads, frequência base de 2,9 GHz e frequência máxima de 4,3 GHz.
+
+Ambas as máquinas executam o sistema operacional NixOS. A compilação do RPCS3 e seu ambiente de execução foram feitas por meio do gerenciador de pacotes Nix, garantindo que ambas as plataformas utilizassem versões idênticas de bibliotecas, dependências e opções de compilação. Dessa forma, buscou-se minimizar diferenças de software entre os sistemas, permitindo que as variações observadas fossem atribuídas predominantemente às características do hardware.
+
+Foram criados dois scripts para simplificação do setup do ambientes. O primeiro é o script build.sh, que baixa e compila o fork instrumentado do RPCS3. O segundo é run.sh, que carrega as dependências necessárias e inicializa o emulador.
+
+### Carga de trabalho
+
+Como carga de trabalho, foi utilizado o jogo *The Last of Us*, escolhido por sua alta exigência computacional no contexto do PlayStation 3. Para reduzir variabilidade associada a cenas dinâmicas, dois estados distintos do jogo foram selecionados a partir de saves específicos. Em cada estado, o personagem permaneceu inativo durante toda a coleta de dados, evitando interferência de inputs de usuário.
+
+Os dois cenários selecionados representam uma carga de trabalho intensa para a CPU, com múltiplos persoágens na tela ao mesmo tempo.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.9\linewidth]{images/cena1.png}
+\caption{Screenshot da cena 1}
+\label{fig:c1}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.9\linewidth]{images/cena2.png}
+\caption{Screenshot da cena 2}
+\label{fig:c2}
+\end{figure}
+
+O primeiro cenário é parte do capítulo "Outside", como na figura 1, segundo cenário é no capítulo "Slums", como na figura 2.
+
+### Instrumentação e métricas
+
+O RPCS3 foi instrumentado com um logger personalizado para coleta de três métricas: frametime (tempo de renderização por quadro) e utilização dos módulos PPU (Power Processing Unit) e SPU (Synergistic Processing Units). Os dados foram registrados continuamente durante janelas de 60 segundos por execução.
+
+A modificação principal foi no sistema de monitoramento de performance do RPCS3, onde um logger contínuo escreve a utilização da SPU, PPU e o frametime para um arquivo CSV. O logger é ativado através da tecla F2 no teclado e se desativa automaticamento após 60 segundos. Foi adicionado um elemento de UI nas configurações de atalho do RPCS3 para remapear a técla.
+
+### Protocolo experimental
+
+Para cada combinação de arquitetura de CPU, número de núcleos e cena do jogo, foram realizadas 5 execuções independentes. Cada execução consistiu em uma coleta contínua de 60 segundos, totalizando um conjunto de amostras suficientemente robusto para análise estatística de variação de desempenho.
+
+No processador Ryzen, as configurações de 6, 8 e 12 núcleos foram utilizadas. Foram realizados testes em 4 núcleos também, mas a instabilidade do emulador nessa configuração impediu a coleta de dados devido a crashes constantes.
+
+Os resultados foram posteriormente agregados para análise comparativa entre configurações, considerando médias e distribuição de frametime como principais indicadores de performance.
+
+# Conclusão
+Pode ser observado na figura 3 o aumento na variabilidade de utilização do hardware comparando o múmero diferente de cores. Com 12 cores o trabalho está espalhado entre vários núcleos, diminuindo variabilidade e a carga total do sistema. Com 8 cores, a variabilidade aumenta e com 6 a maior variabilidade é observada. Na figura 5, o aumento do número de cores espelha a utilização, com a maior variabilidade de quadros vindo da configuração com 8 núcleos.
+
+Nota-se um grande número de outliers em 8 cores. Os outliers podem ser notados em 12 cores na figura 5, onde existem outliers mais extremos do que em 6 cores. Uma hipótese é que sejam causados pela utilização de dois complexos de núcleos diferentes. O Ryzen 9 9900X possui dois complexos no die contendo 6 cores cada, a desabilitação de 4 cores pela BIOS deve ser feita em 2 cores por complexo, assim sobrando 4 cores em cada. A comunicação entre os complexos pode estar causando os outlier. Isso pode ser explorado mais aprofundadamente em um próximo trabalho.
+
+Na figura 4 nota-se que em comparação com o Ryzen 9 9900X, o i5 10400f tem uma utilização parecida, embora mais variada. Podemos notar na figura 6 que a mesma quantidade de trabalho não está sendo feita: os quadros estão sendo gerados em torno de 60 ms no i5 comparado a 25 ms no Ryzen, menos da metade do tempo para o mesmo número de cores. O aumento de IPC e a inclusão das instruções AVX512, muito utilizadas no RPCS3, do Ryzen 9 9900X podem ser atribuídos a esse aumento de velocidade.
+
+
+```{r  message=FALSE, warning=FALSE, echo=FALSE}
+library(readr)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+```
+
+```{r,echo=FALSE}
+csv_amd_12_cores <- list.files(path = "../../R_language/Experiments/Processador_AMD/12_cores/Cena_1", pattern = "*.csv", full.names = TRUE)
+csv_amd_12_cores_cena2 <- list.files(path = "../../R_language/Experiments/Processador_AMD/12_cores/Cena_2", pattern = "*.csv", full.names = TRUE)
+csv_amd_6_cores <- list.files(path = "../../R_language/Experiments/Processador_AMD/6_cores/Cena_1", pattern = "*.csv", full.names = TRUE)
+csv_amd_6_cores_cena2 <- list.files(path = "../../R_language/Experiments/Processador_AMD/6_cores/Cena_2", pattern = "*.csv", full.names = TRUE)
+csv_intel_10400f_6_cores <- list.files(path = "../../R_language/Experiments/INTEL-I5-10400F/6_cores/Cena_1_save8_", pattern = "*.csv", full.names = TRUE)
+csv_intel_10400f_6_cores_cena2 <- list.files(path = "../../R_language/Experiments/INTEL-I5-10400F/6_cores/Cena_2", pattern = "*.csv", full.names = TRUE)
+csv_amd_8_cores <- list.files(path = "../../R_language/Experiments/Processador_AMD/8_cores/Cena_1", pattern = "*.csv", full.names = TRUE)
+csv_amd_8_cores_cena2 <- list.files(path = "../../R_language/Experiments/Processador_AMD/8_cores/Cena_2", pattern = "*.csv", full.names = TRUE)
+
+raw_data_amd_12_cores <- do.call(rbind, lapply(csv_amd_12_cores, read.csv))
+raw_data_amd_12_cores_cena2 <- do.call(rbind, lapply(csv_amd_12_cores_cena2, read.csv))
+raw_data_amd_6_cores <- do.call(rbind, lapply(csv_amd_6_cores, read.csv))
+raw_data_amd_6_cores_cena2 <- do.call(rbind, lapply(csv_amd_6_cores_cena2, read.csv))
+raw_data_intel_10400f_6_cores <- do.call(rbind, lapply(csv_intel_10400f_6_cores, read.csv))
+raw_data_intel_10400f_6_cores_cena2 <- do.call(rbind, lapply(csv_intel_10400f_6_cores_cena2, read.csv))
+raw_data_amd_8_cores <- do.call(rbind, lapply(csv_amd_8_cores, read.csv))
+raw_data_amd_8_cores_cena2 <- do.call(rbind, lapply(csv_amd_8_cores_cena2, read.csv))
+
+```
+
+```{r message=FALSE, warning=FALSE, echo=FALSE, fig.align = "center", out.width='85%', fig.cap="Uso de CPU e PPU para o Ryzen"}
+#Gráfico de comparação cores AMD PPU SPU
+# Adiciona coluna cpu nos dados brutos
+
+raw_data_amd_6_cores$cores <- "6 cores"
+raw_data_amd_6_cores$cpu <- "Ryzen 9 9900X"
+raw_data_amd_8_cores$cores <- "8 cores"
+raw_data_amd_8_cores$cpu <- "Ryzen 9 9900X"
+raw_data_amd_12_cores$cores <- "12 cores"
+raw_data_amd_12_cores$cpu <- "Ryzen 9 9900X"
+
+amd_cores_raw <- rbind(raw_data_amd_6_cores, raw_data_amd_8_cores, raw_data_amd_12_cores)
+amd_cores_raw_long <- amd_cores_raw %>%
+  pivot_longer(cols = c(ppu_usage, spu_usage),
+               names_to = "nucleos",
+               values_to = "uso")
+
+ggplot(amd_cores_raw_long, aes(x = cores, y = uso, fill = cores)) +
+  geom_boxplot(coef = 1.5) +
+  scale_fill_manual(values = c("6 cores" = "red", "8 cores" = "green", "12 cores" = "blue")) +
+  scale_x_discrete(labels = c("ppu_usage" = "PPU", "spu_usage" = "SPU"), limits = c("6 cores", "8 cores", "12 cores")) +
+  labs(title = "Uso de PPU e SPU Ryzen 9 9900X",
+       #subtitle = "",
+       x = "Cores", y = "Uso (%)", fill = "Cores") +
+  scale_y_continuous(breaks = seq(0, 60, by = 5), limits = c(0, 60), expand = c(0, 0)) +
+  theme_minimal()
+```
+
+```{r message=FALSE, warning=FALSE, echo=FALSE, fig.align = "center", out.width='85%', fig.cap="Uso de CPU e PPU comparado entre processadores"}
+#Gráfico de comparação Intel AMD PPU SPU
+# Adiciona coluna cpu nos dados brutos
+raw_data_intel_10400f_6_cores$cpu <- "Core i5 10400f"
+raw_data_intel_10400f_6_cores$cores <- "6 cores"
+
+all_6_cores_raw <- rbind(raw_data_amd_6_cores, raw_data_intel_10400f_6_cores)
+all_6_cores_raw_long <- all_6_cores_raw %>%
+  pivot_longer(cols = c(ppu_usage, spu_usage),
+               names_to = "componente",
+               values_to = "uso")
+
+ggplot(all_6_cores_raw_long, aes(x = componente, y = uso, fill = cpu)) +
+  geom_boxplot() +
+  scale_fill_manual(values = c("Ryzen 9 9900X" = "red", "Core i5 10400f" = "blue")) +
+  scale_x_discrete(labels = c("ppu_usage" = "PPU", "spu_usage" = "SPU")) +
+  labs(title = "Uso de PPU e SPU - R9 9900X vs i5 10400f",
+       subtitle = "6 cores",
+       x = "Componente", y = "Uso (%)", fill = "CPU") +
+  scale_y_continuous(breaks = seq(0, 60, by = 5), limits = c(0, 60), expand = c(0, 0)) +
+  theme_minimal()
+```
+
+
+```{r, echo=FALSE, fig.align = "center", out.width='70%', fig.cap="Frametime em ms para configurações diferentes de cores para o Ryzen 9 9900X"}
+#Gráfico ms AMD per core
+
+all_amd_raw <- rbind(
+  raw_data_amd_6_cores,
+  raw_data_amd_8_cores,
+  raw_data_amd_12_cores
+)
+
+all_amd_raw$cores <- factor(all_amd_raw$cores, levels = c("6 cores", "8 cores", "12 cores"))
+
+ggplot(all_amd_raw, aes(x = cores, y = frametime_ms, fill = cores)) +
+  geom_boxplot() +
+  scale_fill_manual(values = c("6 cores" = "red", "8 cores" = "darkgreen", "12 cores" = "blue")) +
+  labs(title = "Variação de Frametime por número de cores - Ryzen 9 9900X",
+       x = "Configuração", y = "Frametime (ms)", fill = "Cores") +
+  coord_cartesian(ylim = c(0, NA)) +
+  theme_minimal()
+```
+
+```{r, echo=FALSE, fig.align = "center", out.width='70%', fig.cap="Comparação de frametime em ms para as duas CPUs"}
+#Gráfico ms vs
+
+ggplot(all_6_cores_raw_long, aes(x = cpu, y = frametime_ms, fill = cpu)) +
+  geom_boxplot() +
+  scale_fill_manual(values = c("Ryzen 9 9900X" = "red", "Core i5 10400f" = "blue")) +
+  labs(title = "Variação de Frametime por CPU com 6 cores ativos",
+       x = "CPU", y = "Frametime (ms)", fill = "CPU") +
+  coord_cartesian(ylim = c(0, NA)) +
+  theme_minimal()
+```
+
+# References
+
+---
+references:
+- id: meier2012
+  title: Professinal Android 4 Application Development
+  author: 
+  - family: Meier
+    given: Reto
+  type: book
+  publisher: John Wiley & Sons, Inc.
+  issued:
+    year: 2012
+    month: 5
+- id: fenner2012a
+  title: One-click science marketing
+  author:
+  - family: Fenner
+    given: Martin
+  container-title: Nature Materials
+  volume: 11
+  URL: 'https://doi.org/10.1038/nmat3283'
+  DOI: 10.1038/nmat3283
+  issue: 4
+  publisher: Nature Publishing Group
+  page: 261-263
+  type: article-journal
+  issued:
+    year: 2012
+    month: 3
+...
+

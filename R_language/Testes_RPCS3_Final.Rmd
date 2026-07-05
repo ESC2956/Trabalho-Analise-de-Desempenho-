@@ -439,6 +439,12 @@ raw_data_amd_8_cores$cpu <- "AMD"
 raw_data_amd_12_cores$cores <- "12 cores"
 raw_data_amd_12_cores$cpu <- "AMD"
 
+all_amd_raw <- rbind(
+  raw_data_amd_6_cores,
+  raw_data_amd_8_cores,
+  raw_data_amd_12_cores
+)
+
 all_amd_raw$cores <- factor(all_amd_raw$cores, levels = c("6 cores", "8 cores", "12 cores"))
 
 ggplot(all_amd_raw, aes(x = cores, y = frametime_ms, fill = cores)) +
