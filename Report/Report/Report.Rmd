@@ -7,10 +7,6 @@ author:
     affiliation: Universidade Federal do Rio Grande do Sul
   - name: Miguel Predebon Abichequer
     affiliation: Universidade Federal do Rio Grande do Sul
-abstract: |
-  This is the abstract.
-
-  It consists of two paragraphs.
 bibliography: sigproc.bib
 csl: acm-sig-proceedings.csl
 output: 

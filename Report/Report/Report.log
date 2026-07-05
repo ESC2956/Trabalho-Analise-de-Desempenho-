@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.7.4)  5 JUL 2026 16:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.7.4)  5 JUL 2026 16:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -287,7 +287,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip52
 )
-LaTeX Font Info:    Trying to load font information for T1+aer on input line 41
+LaTeX Font Info:    Trying to load font information for T1+aer on input line 44
 .
 (/usr/share/texmf-dist/tex/latex/ae/t1aer.fd
 File: t1aer.fd 1997/11/16 Font definitions for T1/aer.
@@ -297,24 +297,24 @@ File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 ) (./Report.aux)
 \openout1 = `Report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count316
@@ -340,118 +340,119 @@ e
 Package hyperref Warning: Height of page (\paperheight) is invalid (0.0pt),
 (hyperref)                using 11in.
 
-Package hyperref Info: Link coloring OFF on input line 41.
+Package hyperref Info: Link coloring OFF on input line 44.
 (./Report.out) (./Report.out)
 \@outlinefile=\write3
 \openout3 = `Report.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 45.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 48.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 45.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 48.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 45
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 48
 .
 (/usr/share/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-Overfull \hbox (3.60649pt too wide) in paragraph at lines 72--76
+Overfull \hbox (3.60649pt too wide) in paragraph at lines 70--74
 \T1/aer/m/n/9 A em-u-lação de hard-ware de ar-quite-turas di-ver-sas é um grand
 e
  []
 
 
-Overfull \hbox (5.80344pt too wide) in paragraph at lines 91--102
+Overfull \hbox (5.80344pt too wide) in paragraph at lines 89--100
 \T1/aer/m/n/9 em soft-ware é uma tarefa com-pli-cada. Não é ape-nas necessário
  []
 
 <images/cell.jpg, id=40, 1927.2pt x 1084.05pt>
 File: images/cell.jpg Graphic file (type jpg)
 <use images/cell.jpg>
-Package pdftex.def Info: images/cell.jpg  used on input line 113.
+Package pdftex.def Info: images/cell.jpg  used on input line 111.
 (pdftex.def)             Requested size: 215.99854pt x 121.49547pt.
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 125.
-
-
-Overfull \hbox (3.35551pt too wide) in paragraph at lines 127--134
-\T1/aer/m/n/9 Os ex-per-i-men-tos foram con-duzi-dos em duas platafor-mas com-
- []
-
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf-dist/fon
 ts/enc/dvips/base/8r.enc}
 
 
-]
-Overfull \hbox (14.05412pt too wide) in paragraph at lines 135--142
+ <./images/cell.jpg>]
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 123.
+
+
+Overfull \hbox (3.35551pt too wide) in paragraph at lines 125--132
+\T1/aer/m/n/9 Os ex-per-i-men-tos foram con-duzi-dos em duas platafor-mas com-
+ []
+
+
+Overfull \hbox (14.05412pt too wide) in paragraph at lines 133--140
 \T1/aer/m/n/9 sis-temas, per-mitindo que as vari-ações ob-ser-vadas fos-sem atr
 ibuí-
  []
 
-<images/cena1.png, id=53, 1927.2pt x 1084.05pt>
+<images/cena1.png, id=52, 1927.2pt x 1084.05pt>
 File: images/cena1.png Graphic file (type png)
 <use images/cena1.png>
-Package pdftex.def Info: images/cena1.png  used on input line 162.
+Package pdftex.def Info: images/cena1.png  used on input line 160.
 (pdftex.def)             Requested size: 215.99854pt x 121.49547pt.
-<images/cena2.png, id=55, 1284.8pt x 722.7pt>
+<images/cena2.png, id=54, 1284.8pt x 722.7pt>
 File: images/cena2.png Graphic file (type png)
 <use images/cena2.png>
-Package pdftex.def Info: images/cena2.png  used on input line 169.
+Package pdftex.def Info: images/cena2.png  used on input line 167.
 (pdftex.def)             Requested size: 215.99854pt x 121.48996pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.229 
-       [2 <./images/cell.jpg> <./images/cena1.png> <./images/cena2.png>]
-<Report_files/figure-latex/unnamed-chunk-3-1.pdf, id=65, 453.695pt x 313.17pt>
+l.227 
+       [2 <./images/cena1.png> <./images/cena2.png>]
+<Report_files/figure-latex/unnamed-chunk-3-1.pdf, id=64, 453.695pt x 313.17pt>
 File: Report_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (type pdf)
 <use Report_files/figure-latex/unnamed-chunk-3-1.pdf>
 Package pdftex.def Info: Report_files/figure-latex/unnamed-chunk-3-1.pdf  used 
-on input line 248.
+on input line 246.
 (pdftex.def)             Requested size: 204.00146pt x 140.81528pt.
-<Report_files/figure-latex/unnamed-chunk-4-1.pdf, id=66, 453.695pt x 315.1775pt
+<Report_files/figure-latex/unnamed-chunk-4-1.pdf, id=65, 453.695pt x 315.1775pt
 >
 File: Report_files/figure-latex/unnamed-chunk-4-1.pdf Graphic file (type pdf)
 <use Report_files/figure-latex/unnamed-chunk-4-1.pdf>
 Package pdftex.def Info: Report_files/figure-latex/unnamed-chunk-4-1.pdf  used 
-on input line 257.
+on input line 255.
 (pdftex.def)             Requested size: 204.00146pt x 141.71794pt.
-<Report_files/figure-latex/unnamed-chunk-5-1.pdf, id=67, 453.695pt x 315.1775pt
+<Report_files/figure-latex/unnamed-chunk-5-1.pdf, id=66, 453.695pt x 315.1775pt
 >
 File: Report_files/figure-latex/unnamed-chunk-5-1.pdf Graphic file (type pdf)
 <use Report_files/figure-latex/unnamed-chunk-5-1.pdf>
 Package pdftex.def Info: Report_files/figure-latex/unnamed-chunk-5-1.pdf  used 
-on input line 266.
+on input line 264.
 (pdftex.def)             Requested size: 204.00146pt x 141.71794pt.
-<Report_files/figure-latex/unnamed-chunk-6-1.pdf, id=68, 453.695pt x 313.17pt>
+<Report_files/figure-latex/unnamed-chunk-6-1.pdf, id=67, 453.695pt x 313.17pt>
 File: Report_files/figure-latex/unnamed-chunk-6-1.pdf Graphic file (type pdf)
 <use Report_files/figure-latex/unnamed-chunk-6-1.pdf>
 Package pdftex.def Info: Report_files/figure-latex/unnamed-chunk-6-1.pdf  used 
-on input line 275.
+on input line 273.
 (pdftex.def)             Requested size: 204.00146pt x 140.81528pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.282 \clearpage
+l.280 \clearpage
                  [3 <./Report_files/figure-latex/unnamed-chunk-3-1.pdf> <./Repo
 rt_files/figure-latex/unnamed-chunk-4-1.pdf> <./Report_files/figure-latex/unnam
 ed-chunk-5-1.pdf> <./Report_files/figure-latex/unnamed-chunk-6-1.pdf>]
 LaTeX Font Info:    Trying to load font information for T1+aett on input line 2
-87.
+85.
 (/usr/share/texmf-dist/tex/latex/ae/t1aett.fd
 File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
 )
-Overfull \hbox (20.36565pt too wide) in paragraph at lines 290--294
+Overfull \hbox (20.36565pt too wide) in paragraph at lines 288--292
 \T1/aer/m/n/9 Disponível em: []$\T1/aett/m/n/9 https : / / www . copetti . org 
 / writings / consoles /
  []
@@ -461,7 +462,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.307 \end{document}
+l.305 \end{document}
                      [4
 
 
@@ -474,10 +475,10 @@ Package rerunfilecheck Info: File `Report.out' has not changed.
 (rerunfilecheck)             Checksum: 72C47E3330F46FE1AA6F76415160A675;1209.
  ) 
 Here is how much of TeX's memory you used:
- 10160 strings out of 469515
- 152004 string characters out of 5470808
- 571065 words of memory out of 5000000
- 38651 multiletter control sequences out of 15000+600000
+ 10157 strings out of 469515
+ 151934 string characters out of 5470808
+ 570146 words of memory out of 5000000
+ 38649 multiletter control sequences out of 15000+600000
  673785 words of font info for 94 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  87i,11n,93p,263b,400s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -488,10 +489,10 @@ sfonts/cm/cmtt9.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb>
 </usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf-di
 st/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/time
 s/utmri8a.pfb>
-Output written on Report.pdf (4 pages, 5466539 bytes).
+Output written on Report.pdf (4 pages, 5467143 bytes).
 PDF statistics:
- 157 PDF objects out of 1000 (max. 8388607)
- 116 compressed objects within 2 object streams
- 19 named destinations out of 1000 (max. 500000)
+ 155 PDF objects out of 1000 (max. 8388607)
+ 114 compressed objects within 2 object streams
+ 18 named destinations out of 1000 (max. 500000)
  108 words of extra memory for PDF output out of 10000 (max. 10000000)
 
