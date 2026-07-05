@@ -5,6 +5,8 @@ author:
     affiliation: Universidade Federal do Rio Grande do Sul
   - name: Erick Schultz Ceresa
     affiliation: Universidade Federal do Rio Grande do Sul
+  - name: Miguel Predebon Abichequer
+    affiliation: Universidade Federal do Rio Grande do Sul
 abstract: |
   This is the abstract.
 
