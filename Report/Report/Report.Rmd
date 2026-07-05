@@ -3,7 +3,7 @@ title: Impacto do número de cores e arquitetura de CPU no desempenho do emulado
 author:
   - name: Victor Furusho Vally
     affiliation: Universidade Federal do Rio Grande do Sul
-  - name: Erick
+  - name: Erick Schultz Ceresa
     affiliation: Universidade Federal do Rio Grande do Sul
 abstract: |
   This is the abstract.
