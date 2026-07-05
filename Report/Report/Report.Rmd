@@ -12,6 +12,7 @@ abstract: |
 bibliography: sigproc.bib
 csl: acm-sig-proceedings.csl
 output: rticles::acm_article
+  keep_tex: yes
 lang: pt-BR
 ---
 
@@ -85,11 +86,11 @@ No processador Ryzen, as configurações de 6, 8 e 12 núcleos foram utilizadas.
 Os resultados foram posteriormente agregados para análise comparativa entre configurações, considerando médias e distribuição de frametime como principais indicadores de performance.
 
 # Conclusão
-Pode ser observado na figura 4 o aumento na variabilidade de utilização do hardware comparando o múmero diferente de cores. Com 12 cores o trabalho está espalhado entre vários núcleos, diminuindo variabilidade e a carga total do sistema. Com 8 cores, a variabilidade aumenta e com 6 a maior variabilidade é observada. Na figura 5, o aumento do número de cores espelha a utilização, com a maior variabilidade de quadros vindo da configuração com 8 núcleos.
+Pode ser observado na figura 4 o aumento na variabilidade de utilização do hardware comparando o múmero diferente de cores. Com 12 cores o trabalho está espalhado entre vários núcleos, diminuindo variabilidade e a carga total do sistema. Com 8 cores, a variabilidade aumenta e com 6 a maior variabilidade é observada. Na figura 6, o aumento do número de cores espelha a utilização, com a maior variabilidade de quadros vindo da configuração com 8 núcleos.
 
-Nota-se um grande número de outliers em 8 cores. Os outliers podem ser notados em 12 cores na figura 5, onde existem outliers mais extremos do que em 6 cores. Uma hipótese é que sejam causados pela utilização de dois complexos de núcleos diferentes. O Ryzen 9 9900X possui dois complexos no die contendo 6 cores cada, a desabilitação de 4 cores pela BIOS deve ser feita em 2 cores por complexo, assim sobrando 4 cores em cada. A comunicação entre os complexos pode estar causando os outlier. Isso pode ser explorado mais aprofundadamente em um próximo trabalho.
+Nota-se um grande número de outliers em 8 cores. Os outliers podem ser notados em 12 cores na figura 6, onde existem outliers mais extremos do que em 6 cores. Uma hipótese é que sejam causados pela utilização de dois complexos de núcleos diferentes. O Ryzen 9 9900X possui dois complexos no die contendo 6 cores cada, a desabilitação de 4 cores pela BIOS deve ser feita em 2 cores por complexo, assim sobrando 4 cores em cada. A comunicação entre os complexos pode estar causando os outlier. Isso pode ser explorado mais aprofundadamente em um próximo trabalho.
 
-Na figura 4 nota-se que em comparação com o Ryzen 9 9900X, o i5 10400f tem uma utilização parecida, embora mais variada. Podemos notar na figura 6 que a mesma quantidade de trabalho não está sendo feita: os quadros estão sendo gerados em torno de 60 ms no i5 comparado a 25 ms no Ryzen, menos da metade do tempo para o mesmo número de cores. O aumento de IPC e a inclusão das instruções AVX512, muito utilizadas no RPCS3, do Ryzen 9 9900X podem ser atribuídos a esse aumento de velocidade.
+Na figura 5 nota-se que em comparação com o Ryzen 9 9900X, o i5 10400f tem uma utilização parecida, embora mais variada. Podemos notar na figura 7 que a mesma quantidade de trabalho não está sendo feita: os quadros estão sendo gerados em torno de 60 ms no i5 comparado a 25 ms no Ryzen, menos da metade do tempo para o mesmo número de cores. O aumento de IPC e a inclusão das instruções AVX512, muito utilizadas no RPCS3, do Ryzen 9 9900X podem ser atribuídos a esse aumento de velocidade.
 
 
 ```{r  message=FALSE, warning=FALSE, echo=FALSE}
