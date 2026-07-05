@@ -82,7 +82,7 @@ A modificação principal foi no sistema de monitoramento de performance do RPCS
 
 Para cada combinação de arquitetura de CPU, número de núcleos e cena do jogo, foram realizadas 5 execuções independentes. Cada execução consistiu em uma coleta contínua de 60 segundos, totalizando um conjunto de amostras suficientemente robusto para análise estatística de variação de desempenho.
 
-No processador Ryzen, as configurações de 6, 8 e 12 núcleos foram utilizadas. Foram realizados testes em 4 núcleos também, mas a instabilidade do emulador nessa configuração impediu a coleta de dados devido a crashes constantes.
+No processador Ryzen, as configurações de 6, 8 e 12 núcleos foram utilizadas. Foram realizados testes em 4 núcleos também, mas a instabilidade do emulador nessa configuração impediu a coleta de dados devido a crashes constantes. O processador Intel foi testado com 6 núcleos, sua configuração máxima de núcleos. 
 
 Os resultados foram posteriormente agregados para análise comparativa entre configurações, considerando médias e distribuição de frametime como principais indicadores de performance.
 
@@ -126,14 +126,21 @@ raw_data_amd_8_cores_cena2 <- do.call(rbind, lapply(csv_amd_8_cores_cena2, read.
 #Gráfico de comparação cores AMD PPU SPU
 # Adiciona coluna cpu nos dados brutos
 
-raw_data_amd_6_cores$cores <- "6 cores"
-raw_data_amd_6_cores$cpu <- "Ryzen 9 9900X"
-raw_data_amd_8_cores$cores <- "8 cores"
-raw_data_amd_8_cores$cpu <- "Ryzen 9 9900X"
-raw_data_amd_12_cores$cores <- "12 cores"
-raw_data_amd_12_cores$cpu <- "Ryzen 9 9900X"
+raw_data_amd_6_cores$cores <- "6 cores, c1"
+raw_data_amd_6_cores$cpu <- "Ryzen 9 9900X, c1"
+raw_data_amd_8_cores$cores <- "8 cores, c1"
+raw_data_amd_8_cores$cpu <- "Ryzen 9 9900X, c1"
+raw_data_amd_12_cores$cores <- "12 cores, c1"
+raw_data_amd_12_cores$cpu <- "Ryzen 9 9900X, c1"
 
-amd_cores_raw <- rbind(raw_data_amd_6_cores, raw_data_amd_8_cores, raw_data_amd_12_cores)
+raw_data_amd_6_cores_cena2$cores <- "6 cores, c2"
+raw_data_amd_6_cores_cena2$cpu <- "Ryzen 9 9900X, c2"
+raw_data_amd_8_cores_cena2$cores <- "8 cores, c2"
+raw_data_amd_8_cores_cena2$cpu <- "Ryzen 9 9900X, c2"
+raw_data_amd_12_cores_cena2$cores <- "12 cores, c2"
+raw_data_amd_12_cores_cena2$cpu <- "Ryzen 9 9900X, c2"
+
+amd_cores_raw <- rbind(raw_data_amd_6_cores, raw_data_amd_8_cores, raw_data_amd_12_cores, raw_data_amd_6_cores_cena2, raw_data_amd_8_cores_cena2, raw_data_amd_12_cores_cena2)
 amd_cores_raw_long <- amd_cores_raw %>%
   pivot_longer(cols = c(ppu_usage, spu_usage),
                names_to = "nucleos",
@@ -141,10 +148,10 @@ amd_cores_raw_long <- amd_cores_raw %>%
 
 ggplot(amd_cores_raw_long, aes(x = cores, y = uso, fill = cores)) +
   geom_boxplot(coef = 1.5) +
-  scale_fill_manual(values = c("6 cores" = "red", "8 cores" = "green", "12 cores" = "blue")) +
-  scale_x_discrete(labels = c("ppu_usage" = "PPU", "spu_usage" = "SPU"), limits = c("6 cores", "8 cores", "12 cores")) +
+  scale_fill_manual(values = c("6 cores, c1" = "red", "8 cores, c1" = "green", "12 cores, c1" = "blue", "6 cores, c2" = "yellow", "8 cores, c2" = "orange", "12 cores, c2" = "purple")) +
+  scale_x_discrete(labels = c("ppu_usage" = "PPU", "spu_usage" = "SPU"), limits = c("6 cores, c1", "8 cores, c1", "12 cores, c1","6 cores, c2", "8 cores, c2", "12 cores, c2")) +
   labs(title = "Uso de PPU e SPU Ryzen 9 9900X",
-       #subtitle = "",
+       subtitle = "Cena 1(c1) e cena 2 (c2)",
        x = "Cores", y = "Uso (%)", fill = "Cores") +
   scale_y_continuous(breaks = seq(0, 60, by = 5), limits = c(0, 60), expand = c(0, 0)) +
   theme_minimal()
@@ -153,10 +160,12 @@ ggplot(amd_cores_raw_long, aes(x = cores, y = uso, fill = cores)) +
 ```{r message=FALSE, warning=FALSE, echo=FALSE, fig.align = "center", out.width='85%', fig.cap="Uso de CPU e PPU comparado entre processadores"}
 #Gráfico de comparação Intel AMD PPU SPU
 # Adiciona coluna cpu nos dados brutos
-raw_data_intel_10400f_6_cores$cpu <- "Core i5 10400f"
-raw_data_intel_10400f_6_cores$cores <- "6 cores"
+raw_data_intel_10400f_6_cores$cpu <- "Core i5 10400f, c1"
+raw_data_intel_10400f_6_cores$cores <- "6 cores, c1"
+raw_data_intel_10400f_6_cores_cena2$cpu <- "Core i5 10400f, c2"
+raw_data_intel_10400f_6_cores_cena2$cores <- "6 cores, c2"
 
-all_6_cores_raw <- rbind(raw_data_amd_6_cores, raw_data_intel_10400f_6_cores)
+all_6_cores_raw <- rbind(raw_data_amd_6_cores, raw_data_amd_6_cores_cena2, raw_data_intel_10400f_6_cores, raw_data_intel_10400f_6_cores_cena2)
 all_6_cores_raw_long <- all_6_cores_raw %>%
   pivot_longer(cols = c(ppu_usage, spu_usage),
                names_to = "componente",
@@ -164,7 +173,7 @@ all_6_cores_raw_long <- all_6_cores_raw %>%
 
 ggplot(all_6_cores_raw_long, aes(x = componente, y = uso, fill = cpu)) +
   geom_boxplot() +
-  scale_fill_manual(values = c("Ryzen 9 9900X" = "red", "Core i5 10400f" = "blue")) +
+  scale_fill_manual(values = c("Ryzen 9 9900X, c1" = "red", "Core i5 10400f, c1" = "blue", "Ryzen 9 9900X, c2" = "green", "Core i5 10400f, c2" = "purple")) +
   scale_x_discrete(labels = c("ppu_usage" = "PPU", "spu_usage" = "SPU")) +
   labs(title = "Uso de PPU e SPU - R9 9900X vs i5 10400f",
        subtitle = "6 cores",
@@ -183,11 +192,11 @@ all_amd_raw <- rbind(
   raw_data_amd_12_cores
 )
 
-all_amd_raw$cores <- factor(all_amd_raw$cores, levels = c("6 cores", "8 cores", "12 cores"))
+all_amd_raw$cores <- factor(all_amd_raw$cores, levels = c("6 cores, c1", "8 cores, c1", "12 cores, c1", "6 cores, c2", "8 cores, c2", "12 cores, c2"))
 
 ggplot(all_amd_raw, aes(x = cores, y = frametime_ms, fill = cores)) +
   geom_boxplot() +
-  scale_fill_manual(values = c("6 cores" = "red", "8 cores" = "darkgreen", "12 cores" = "blue")) +
+  scale_fill_manual(values = c("6 cores, c1" = "red", "8 cores, c1" = "darkgreen", "12 cores, c1" = "blue", "6 cores, c2" = "yellow", "8 cores, c2" = "orange", "12 cores, c2" = "purple")) +
   labs(title = "Variação de Frametime por número de cores - Ryzen 9 9900X",
        x = "Configuração", y = "Frametime (ms)", fill = "Cores") +
   coord_cartesian(ylim = c(0, NA)) +
@@ -199,7 +208,7 @@ ggplot(all_amd_raw, aes(x = cores, y = frametime_ms, fill = cores)) +
 
 ggplot(all_6_cores_raw_long, aes(x = cpu, y = frametime_ms, fill = cpu)) +
   geom_boxplot() +
-  scale_fill_manual(values = c("Ryzen 9 9900X" = "red", "Core i5 10400f" = "blue")) +
+  scale_fill_manual(values = c("Ryzen 9 9900X, c1" = "red", "Core i5 10400f, c1" = "blue", "Ryzen 9 9900X, c2" = "orange", "Core i5 10400f, c2" = "green")) +
   labs(title = "Variação de Frametime por CPU com 6 cores ativos",
        x = "CPU", y = "Frametime (ms)", fill = "CPU") +
   coord_cartesian(ylim = c(0, NA)) +

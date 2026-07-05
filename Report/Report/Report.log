@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.7.4)  5 JUL 2026 15:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.7.4)  5 JUL 2026 16:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -409,45 +409,45 @@ Package pdftex.def Info: images/cena2.png  used on input line 149.
 File: Report_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (type pdf)
 <use Report_files/figure-latex/unnamed-chunk-3-1.pdf>
 Package pdftex.def Info: Report_files/figure-latex/unnamed-chunk-3-1.pdf  used 
-on input line 220.
+on input line 221.
 (pdftex.def)             Requested size: 204.00146pt x 140.81528pt.
 <Report_files/figure-latex/unnamed-chunk-4-1.pdf, id=54, 453.695pt x 315.1775pt
 >
 File: Report_files/figure-latex/unnamed-chunk-4-1.pdf Graphic file (type pdf)
 <use Report_files/figure-latex/unnamed-chunk-4-1.pdf>
 Package pdftex.def Info: Report_files/figure-latex/unnamed-chunk-4-1.pdf  used 
-on input line 229.
+on input line 230.
 (pdftex.def)             Requested size: 204.00146pt x 141.71794pt.
-<Report_files/figure-latex/unnamed-chunk-5-1.pdf, id=55, 453.695pt x 315.1775pt
->
+<Report_files/figure-latex/unnamed-chunk-5-1.pdf, id=55, 452.69125pt x 315.1775
+pt>
 File: Report_files/figure-latex/unnamed-chunk-5-1.pdf Graphic file (type pdf)
 <use Report_files/figure-latex/unnamed-chunk-5-1.pdf>
 Package pdftex.def Info: Report_files/figure-latex/unnamed-chunk-5-1.pdf  used 
-on input line 238.
-(pdftex.def)             Requested size: 167.99927pt x 116.70522pt.
+on input line 239.
+(pdftex.def)             Requested size: 167.99927pt x 116.96492pt.
 <Report_files/figure-latex/unnamed-chunk-6-1.pdf, id=56, 453.695pt x 313.17pt>
 File: Report_files/figure-latex/unnamed-chunk-6-1.pdf Graphic file (type pdf)
 <use Report_files/figure-latex/unnamed-chunk-6-1.pdf>
 Package pdftex.def Info: Report_files/figure-latex/unnamed-chunk-6-1.pdf  used 
-on input line 247.
+on input line 248.
 (pdftex.def)             Requested size: 167.99927pt x 115.96187pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.258 \end{document}
-                     [2 <./images/cena1.png> <./images/cena2.png>]
+l.255 \section{References}
+                          \label{references} [2 <./images/cena1.png> <./images/
+cena2.png>]
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.258 \end{document}
-                     [3
-
- <./Report_files/figure-latex/unnamed-chunk-3-1.pdf> <./Report_files/figure-lat
-ex/unnamed-chunk-4-1.pdf> <./Report_files/figure-latex/unnamed-chunk-5-1.pdf> <
-./Report_files/figure-latex/unnamed-chunk-6-1.pdf>] (./Report.aux)
+l.259 \end{document}
+                     [3 <./Report_files/figure-latex/unnamed-chunk-3-1.pdf> <./
+Report_files/figure-latex/unnamed-chunk-4-1.pdf> <./Report_files/figure-latex/u
+nnamed-chunk-5-1.pdf> <./Report_files/figure-latex/unnamed-chunk-6-1.pdf>] (./R
+eport.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -469,7 +469,7 @@ type1/public/amsfonts/cm/cmti9.pfb></usr/share/texmf-dist/fonts/type1/urw/helve
 tic/uhvb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr
 /share/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-dist/fonts
 /type1/urw/times/utmri8a.pfb>
-Output written on Report.pdf (3 pages, 5392069 bytes).
+Output written on Report.pdf (3 pages, 5412738 bytes).
 PDF statistics:
  137 PDF objects out of 1000 (max. 8388607)
  100 compressed objects within 1 object stream
