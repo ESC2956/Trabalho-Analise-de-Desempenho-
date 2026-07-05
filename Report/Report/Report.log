@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.7.4)  5 JUL 2026 16:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.7.4)  5 JUL 2026 16:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -373,19 +373,19 @@ Overfull \hbox (5.80344pt too wide) in paragraph at lines 73--84
 <images/cell.jpg, id=36, 1927.2pt x 1084.05pt>
 File: images/cell.jpg Graphic file (type jpg)
 <use images/cell.jpg>
-Package pdftex.def Info: images/cell.jpg  used on input line 94.
+Package pdftex.def Info: images/cell.jpg  used on input line 95.
 (pdftex.def)             Requested size: 215.99854pt x 121.49547pt.
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 106.
+(hyperref)                than one, level fixed on input line 107.
 
 
-Overfull \hbox (3.35551pt too wide) in paragraph at lines 108--115
+Overfull \hbox (3.35551pt too wide) in paragraph at lines 109--116
 \T1/aer/m/n/9 Os ex-per-i-men-tos foram con-duzi-dos em duas platafor-mas com-
  []
 
 
-Overfull \hbox (14.05412pt too wide) in paragraph at lines 116--123
+Overfull \hbox (14.05412pt too wide) in paragraph at lines 117--124
 \T1/aer/m/n/9 sis-temas, per-mitindo que as vari-ações ob-ser-vadas fos-sem atr
 ibuí-
  []
@@ -398,81 +398,102 @@ ts/enc/dvips/base/8r.enc}
 <images/cena1.png, id=50, 1927.2pt x 1084.05pt>
 File: images/cena1.png Graphic file (type png)
 <use images/cena1.png>
-Package pdftex.def Info: images/cena1.png  used on input line 143.
+Package pdftex.def Info: images/cena1.png  used on input line 144.
 (pdftex.def)             Requested size: 215.99854pt x 121.49547pt.
 <images/cena2.png, id=52, 1284.8pt x 722.7pt>
 File: images/cena2.png Graphic file (type png)
 <use images/cena2.png>
-Package pdftex.def Info: images/cena2.png  used on input line 150.
+Package pdftex.def Info: images/cena2.png  used on input line 151.
 (pdftex.def)             Requested size: 215.99854pt x 121.48996pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.226 
-       [2 <./images/cena1.png> <./images/cena2.png>]
+l.221 A
+        cena 2 apresenta um comportamento diferente da cena 1. Pode-se notar [2
+ <./images/cena1.png> <./images/cena2.png>]
 <Report_files/figure-latex/unnamed-chunk-3-1.pdf, id=61, 453.695pt x 313.17pt>
 File: Report_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (type pdf)
 <use Report_files/figure-latex/unnamed-chunk-3-1.pdf>
 Package pdftex.def Info: Report_files/figure-latex/unnamed-chunk-3-1.pdf  used 
-on input line 229.
+on input line 230.
 (pdftex.def)             Requested size: 204.00146pt x 140.81528pt.
 <Report_files/figure-latex/unnamed-chunk-4-1.pdf, id=62, 453.695pt x 315.1775pt
 >
 File: Report_files/figure-latex/unnamed-chunk-4-1.pdf Graphic file (type pdf)
 <use Report_files/figure-latex/unnamed-chunk-4-1.pdf>
 Package pdftex.def Info: Report_files/figure-latex/unnamed-chunk-4-1.pdf  used 
-on input line 238.
+on input line 239.
 (pdftex.def)             Requested size: 204.00146pt x 141.71794pt.
 <Report_files/figure-latex/unnamed-chunk-5-1.pdf, id=63, 453.695pt x 315.1775pt
 >
 File: Report_files/figure-latex/unnamed-chunk-5-1.pdf Graphic file (type pdf)
 <use Report_files/figure-latex/unnamed-chunk-5-1.pdf>
 Package pdftex.def Info: Report_files/figure-latex/unnamed-chunk-5-1.pdf  used 
-on input line 247.
-(pdftex.def)             Requested size: 167.99927pt x 116.70522pt.
+on input line 248.
+(pdftex.def)             Requested size: 204.00146pt x 141.71794pt.
 <Report_files/figure-latex/unnamed-chunk-6-1.pdf, id=64, 453.695pt x 313.17pt>
 File: Report_files/figure-latex/unnamed-chunk-6-1.pdf Graphic file (type pdf)
 <use Report_files/figure-latex/unnamed-chunk-6-1.pdf>
 Package pdftex.def Info: Report_files/figure-latex/unnamed-chunk-6-1.pdf  used 
-on input line 256.
-(pdftex.def)             Requested size: 167.99927pt x 115.96187pt.
+on input line 257.
+(pdftex.def)             Requested size: 204.00146pt x 140.81528pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.267 \end{document}
-                     [3 <./Report_files/figure-latex/unnamed-chunk-3-1.pdf> <./
-Report_files/figure-latex/unnamed-chunk-4-1.pdf> <./Report_files/figure-latex/u
-nnamed-chunk-5-1.pdf> <./Report_files/figure-latex/unnamed-chunk-6-1.pdf>] (./R
-eport.aux)
+l.264 \clearpage
+                 [3 <./Report_files/figure-latex/unnamed-chunk-3-1.pdf> <./Repo
+rt_files/figure-latex/unnamed-chunk-4-1.pdf> <./Report_files/figure-latex/unnam
+ed-chunk-5-1.pdf> <./Report_files/figure-latex/unnamed-chunk-6-1.pdf>]
+LaTeX Font Info:    Trying to load font information for T1+aett on input line 2
+69.
+(/usr/share/texmf-dist/tex/latex/ae/t1aett.fd
+File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
+)
+Overfull \hbox (20.36565pt too wide) in paragraph at lines 272--276
+\T1/aer/m/n/9 Disponível em: []$\T1/aett/m/n/9 https : / / www . copetti . org 
+/ writings / consoles /
+ []
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.289 \end{document}
+                     [4
+
+
+] (./Report.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `Report.out' has not changed.
-(rerunfilecheck)             Checksum: 5DAF5B180BE5B1DCA2C8E9A9F9BE5FE0;1107.
+(rerunfilecheck)             Checksum: 84C0CC78F405432907C4E78B608C4144;1115.
  ) 
 Here is how much of TeX's memory you used:
- 10128 strings out of 469515
- 151521 string characters out of 5470808
- 569029 words of memory out of 5000000
- 38626 multiletter control sequences out of 15000+600000
- 672939 words of font info for 91 fonts, out of 8000000 for 9000
+ 10157 strings out of 469515
+ 151967 string characters out of 5470808
+ 569031 words of memory out of 5000000
+ 38649 multiletter control sequences out of 15000+600000
+ 673785 words of font info for 94 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  87i,11n,93p,263b,400s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmb10.pfb></usr/share/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmti9.pfb></usr/share/texmf-dist/fonts/type1/urw/helve
-tic/uhvb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr
-/share/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-dist/fonts
-/type1/urw/times/utmri8a.pfb>
-Output written on Report.pdf (3 pages, 5443618 bytes).
+type1/public/amsfonts/cm/cmti9.pfb></usr/share/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmtt9.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb>
+</usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf-di
+st/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/time
+s/utmri8a.pfb>
+Output written on Report.pdf (4 pages, 5465251 bytes).
 PDF statistics:
- 137 PDF objects out of 1000 (max. 8388607)
- 100 compressed objects within 1 object stream
+ 152 PDF objects out of 1000 (max. 8388607)
+ 111 compressed objects within 2 object streams
  18 named destinations out of 1000 (max. 500000)
  100 words of extra memory for PDF output out of 10000 (max. 10000000)
 

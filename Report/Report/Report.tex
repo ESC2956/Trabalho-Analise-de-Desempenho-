@@ -65,29 +65,30 @@ O Playstation 3 oferece vários componentes em operação paralela, os
 principais sendo: 8 unidades de processamento SIMD com alta vasão
 chamadas SPEs ou Synergistic Processing Elements, dentro das quais 6
 podem ser utilizadas por software, uma é reservada para o OS e uma é
-desativada; um ring buffer que alimentar as SPEs com instruções e dados,
-chamado Element Interconnect Bus; e por fim um processador principal
-chamado de PPE, ou Power Processing Element. Todos com seu próprio cache
-e instruções.
+desativada; um barramento em anel que alimenta as SPEs com instruções e
+dados, chamado Element Interconnect Bus; e por fim um processador
+principal chamado de PPE, ou Power Processing Element. Todos com seu
+próprio cache e instruções {[}\textbf{copetti-ps3?}{]}.
 
 É fácil de perceber que implementar um sistema compatível em software é
 uma tarefa complicada. Não é apenas necessário que a arquitetura do
-emulador seja sólida, mas que o hardware host seja utilizado
-eficientemente para que a emulação ocorra em velocidades interagíveis. O
+emulador seja sólida, mas que o hardware hospedeiro seja utilizado
+eficientemente para que a emulação ocorra em velocidades interativas. O
 maior obstáculo para a eficiência da emulação do Playstation 3 é o
 paralelismo, o que é espelhado na arquiteturo do console: no mínimo é
 necessário que ocorram 7 operações em paralelo, sem contar os
 componentes que cercam o complexo principal do processador e os
 segmentos do ring buffer. Por consequência, toda a demanda cai sobre a
 CPU do sistema host, o que é consolidado nos requisitos do RPCS3: uma
-grande disparidade entre o tier de performance da CPU comparada a CPU.
+grande disparidade entre a classe de desempenho da CPU comparada a GPU.
 
-Visamos explorar a relação entre o número de núcleos do processador host
-e a performance de emulação no emulador RPCS3. Utilizando um dos jogos
-mais exigentes no hardware do Playstation 3, The Last of Us, utilizando
-o tempo entre a geração de cada quadro, ou frametime, para contrastar a
-performance entre 6, 8 e 12 núcleos do mesmo processador. Também
-comparamos duas arquiteturas de processador com 6 núcleos.
+Este trabalho avalia experimentalmente a relação entre o número de
+núcleos do processador host e a performance de emulação no emulador
+RPCS3. Utilizando um dos jogos mais exigentes no hardware do Playstation
+3, The Last of Us, utilizando o tempo entre a geração de cada quadro, ou
+frametime, para contrastar a performance entre 6, 8 e 12 núcleos do
+mesmo processador. Também comparamos duas arquiteturas de processador
+com 6 núcleos.
 
 \begin{figure}[t]
 \centering
@@ -217,6 +218,13 @@ de IPC, a inclusão das instruções AVX512, muito utilizadas no RPCS3, e a
 frequência maior do Ryzen 9 9900X podem ser atribuídos a esse aumento de
 velocidade.
 
+A cena 2 apresenta um comportamento diferente da cena 1. Pode-se notar
+que existe uma limitação no uso tanto da CPU, por ter utilização mais
+baixa, quanto da GPU, que fica em torno de 50\% invés de 70\% como na
+cena 1. Uma investigação dos ``gargalos'' presentes na emulação de
+títulos que usam o hardware do Playstation 3 ao máximo poderia revelar
+mais informações sobre essa limitação.
+
 \begin{figure}
 
 {\centering \includegraphics[width=0.85\linewidth]{Report_files/figure-latex/unnamed-chunk-3-1} 
@@ -237,7 +245,7 @@ velocidade.
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{Report_files/figure-latex/unnamed-chunk-5-1} 
+{\centering \includegraphics[width=0.85\linewidth]{Report_files/figure-latex/unnamed-chunk-5-1} 
 
 }
 
@@ -246,14 +254,35 @@ velocidade.
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.7\linewidth]{Report_files/figure-latex/unnamed-chunk-6-1} 
+{\centering \includegraphics[width=0.85\linewidth]{Report_files/figure-latex/unnamed-chunk-6-1} 
 
 }
 
 \caption{Comparação de frametime em ms para as duas CPUs}\label{fig:unnamed-chunk-6}
 \end{figure}
 
-\section{References}\label{references}
+\clearpage
+
+\section{Referências}\label{referuxeancias}
+
+Advanced Micro Devices. \emph{AMD Ryzen 9 9900X Processor
+Specifications}. 2024. Disponível em: \url{https://www.amd.com}. Acesso
+em: 5 jul. 2026.
+
+Copetti, Rodrigo. \emph{PlayStation 3 Architecture -- A Practical
+Analysis}. 2021. Última atualização em 10 jun. 2026. Disponível em:
+\url{https://www.copetti.org/writings/consoles/playstation-3/}. Acesso
+em: 5 jul. 2026.
+
+Intel Corporation. \emph{Intel Core i5-10400F Processor Specifications}.
+2020. Disponível em: \url{https://www.intel.com}. Acesso em: 5 jul.
+2026.
+
+RPCS3 Team. \emph{RPCS3 -- PlayStation 3 Emulator}. 2025. Disponível em:
+\url{https://rpcs3.net}. Acesso em: 5 jul. 2026.
+
+RPCS3 Team. \emph{RPCS3 Quickstart Guide}. 2025. Disponível em:
+\url{https://rpcs3.net/quickstart}. Acesso em: 5 jul. 2026.
 \setlength{\parindent}{0in}
 
 
