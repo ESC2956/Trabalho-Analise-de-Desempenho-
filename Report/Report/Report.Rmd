@@ -44,7 +44,7 @@ O objetivo desta avaliação é quantificar o impacto do número de núcleos do 
 
 ### Ambiente experimental
 
-Os experimentos foram conduzidos em duas plataformas computacionais distintas. A primeira utiliza um processador AMD Ryzen 9 9900X, com 12 núcleos e 24 threads, frequência base de 4,4 GHz e frequência máxima de 5,6 GHz, acompanhado de uma GPU AMD Radeon RX 7800 XT. A segunda utiliza um processador Intel Core i5-10400F, com 6 núcleos e 12 threads, frequência base de 2,9 GHz e frequência máxima de 4,3 GHz.
+Os experimentos foram conduzidos em duas plataformas computacionais distintas. A primeira utiliza um processador AMD Ryzen 9 9900X, com 12 núcleos e 24 threads, frequência base de 4,4 GHz e frequência máxima de 5,6 GHz, acompanhado de uma GPU AMD Radeon RX 7800 XT. A segunda utiliza um processador Intel Core i5-10400F, com 6 núcleos e 12 threads, frequência base de 2,9 GHz e frequência máxima de 4,3 GHz e uma GPU RTX 2060.
 
 Ambas as máquinas executam o sistema operacional NixOS. A compilação do RPCS3 e seu ambiente de execução foram feitas por meio do gerenciador de pacotes Nix, garantindo que ambas as plataformas utilizassem versões idênticas de bibliotecas, dependências e opções de compilação. Dessa forma, buscou-se minimizar diferenças de software entre os sistemas, permitindo que as variações observadas fossem atribuídas predominantemente às características do hardware.
 
