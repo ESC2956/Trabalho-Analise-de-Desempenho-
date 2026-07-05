@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.7.4)  5 JUL 2026 15:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.7.4)  5 JUL 2026 15:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -409,40 +409,40 @@ Package pdftex.def Info: images/cena2.png  used on input line 149.
 File: Report_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (type pdf)
 <use Report_files/figure-latex/unnamed-chunk-3-1.pdf>
 Package pdftex.def Info: Report_files/figure-latex/unnamed-chunk-3-1.pdf  used 
-on input line 219.
+on input line 220.
 (pdftex.def)             Requested size: 204.00146pt x 140.81528pt.
 <Report_files/figure-latex/unnamed-chunk-4-1.pdf, id=54, 453.695pt x 315.1775pt
 >
 File: Report_files/figure-latex/unnamed-chunk-4-1.pdf Graphic file (type pdf)
 <use Report_files/figure-latex/unnamed-chunk-4-1.pdf>
 Package pdftex.def Info: Report_files/figure-latex/unnamed-chunk-4-1.pdf  used 
-on input line 228.
+on input line 229.
 (pdftex.def)             Requested size: 204.00146pt x 141.71794pt.
 <Report_files/figure-latex/unnamed-chunk-5-1.pdf, id=55, 453.695pt x 315.1775pt
 >
 File: Report_files/figure-latex/unnamed-chunk-5-1.pdf Graphic file (type pdf)
 <use Report_files/figure-latex/unnamed-chunk-5-1.pdf>
 Package pdftex.def Info: Report_files/figure-latex/unnamed-chunk-5-1.pdf  used 
-on input line 237.
+on input line 238.
 (pdftex.def)             Requested size: 167.99927pt x 116.70522pt.
 <Report_files/figure-latex/unnamed-chunk-6-1.pdf, id=56, 453.695pt x 313.17pt>
 File: Report_files/figure-latex/unnamed-chunk-6-1.pdf Graphic file (type pdf)
 <use Report_files/figure-latex/unnamed-chunk-6-1.pdf>
 Package pdftex.def Info: Report_files/figure-latex/unnamed-chunk-6-1.pdf  used 
-on input line 246.
+on input line 247.
 (pdftex.def)             Requested size: 167.99927pt x 115.96187pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.257 \end{document}
+l.258 \end{document}
                      [2 <./images/cena1.png> <./images/cena2.png>]
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.257 \end{document}
+l.258 \end{document}
                      [3
 
  <./Report_files/figure-latex/unnamed-chunk-3-1.pdf> <./Report_files/figure-lat
@@ -458,7 +458,7 @@ Package rerunfilecheck Info: File `Report.out' has not changed.
 Here is how much of TeX's memory you used:
  10128 strings out of 469515
  151521 string characters out of 5470808
- 569014 words of memory out of 5000000
+ 569029 words of memory out of 5000000
  38626 multiletter control sequences out of 15000+600000
  672939 words of font info for 91 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -469,7 +469,7 @@ type1/public/amsfonts/cm/cmti9.pfb></usr/share/texmf-dist/fonts/type1/urw/helve
 tic/uhvb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr
 /share/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-dist/fonts
 /type1/urw/times/utmri8a.pfb>
-Output written on Report.pdf (3 pages, 5391835 bytes).
+Output written on Report.pdf (3 pages, 5392069 bytes).
 PDF statistics:
  137 PDF objects out of 1000 (max. 8388607)
  100 compressed objects within 1 object stream
