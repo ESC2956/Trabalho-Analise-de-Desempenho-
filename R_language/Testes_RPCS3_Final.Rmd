@@ -438,19 +438,34 @@ raw_data_amd_8_cores$cores <- "8 cores"
 raw_data_amd_8_cores$cpu <- "AMD"
 raw_data_amd_12_cores$cores <- "12 cores"
 raw_data_amd_12_cores$cpu <- "AMD"
+raw_data_amd_6_cores_cena2$cores <- "6 cores"
+raw_data_amd_6_cores_cena2$cpu <- "AMD"
+raw_data_amd_8_cores_cena2$cores <- "8 cores"
+raw_data_amd_8_cores_cena2$cpu <- "AMD"
+raw_data_amd_12_cores_cena2$cores <- "12 cores"
+raw_data_amd_12_cores_cena2$cpu <- "AMD"
+raw_data_intel_10400f_6_cores$cores <- "6 cores"
+raw_data_intel_10400f_6_cores$cpu <- "Intel"
+raw_data_intel_10400f_6_cores_cena2$cores <- "6 cores"
+raw_data_intel_10400f_6_cores_cena2$cpu <- "Intel"
 
-all_amd_raw <- rbind(
-  raw_data_amd_6_cores,
-  raw_data_amd_8_cores,
-  raw_data_amd_12_cores
-)
-
+all_amd_raw <- rbind(raw_data_amd_6_cores, raw_data_amd_8_cores, raw_data_amd_12_cores)
+all_amd_raw_cena2 <- rbind(raw_data_amd_6_cores_cena2, raw_data_amd_8_cores_cena2, raw_data_amd_12_cores_cena2)
 all_amd_raw$cores <- factor(all_amd_raw$cores, levels = c("6 cores", "8 cores", "12 cores"))
-
+all_amd_raw_cena2$cores <- factor(all_amd_raw_cena2$cores, levels = c("6 cores", "8 cores", "12 cores"))
 ggplot(all_amd_raw, aes(x = cores, y = frametime_ms, fill = cores)) +
   geom_boxplot() +
   scale_fill_manual(values = c("6 cores" = "red", "8 cores" = "darkgreen", "12 cores" = "blue")) +
   labs(title = "Variação de Frametime - AMD",
+       subtitle = "Cena 1",
+       x = "Configuração", y = "Frametime (ms)", fill = "Cores") +
+  coord_cartesian(ylim = c(0, NA)) +
+  theme_minimal()
+ggplot(all_amd_raw_cena2, aes(x = cores, y = frametime_ms, fill = cores)) +
+  geom_boxplot() +
+  scale_fill_manual(values = c("6 cores" = "red", "8 cores" = "darkgreen", "12 cores" = "blue")) +
+  labs(title = "Variação de Frametime - AMD",
+       subtitle = "Cena 2",
        x = "Configuração", y = "Frametime (ms)", fill = "Cores") +
   coord_cartesian(ylim = c(0, NA)) +
   theme_minimal()
@@ -459,13 +474,24 @@ ggplot(all_amd_raw, aes(x = cores, y = frametime_ms, fill = cores)) +
 ```{r}
 raw_data_intel_10400f_6_cores$cores <- "6 cores"
 raw_data_intel_10400f_6_cores$cpu <- "Intel"
+raw_data_intel_10400f_6_cores_cena2$cores <- "6 cores"
+raw_data_intel_10400f_6_cores_cena2$cpu <- "Intel"
 all_6_cores_raw <- rbind(raw_data_amd_6_cores, raw_data_intel_10400f_6_cores)
+all_6_cores_raw_cena2 <- rbind(raw_data_amd_6_cores_cena2, raw_data_intel_10400f_6_cores_cena2)
 
 ggplot(all_6_cores_raw, aes(x = cpu, y = frametime_ms, fill = cpu)) +
   geom_boxplot() +
   scale_fill_manual(values = c("AMD" = "red", "Intel" = "blue")) +
   labs(title = "Variação de Frametime - AMD vs Intel",
-       subtitle = "6 cores",
+       subtitle = "6 cores Cena 1",
+       x = "CPU", y = "Frametime (ms)", fill = "CPU") +
+  coord_cartesian(ylim = c(0, NA)) +
+  theme_minimal()
+ggplot(all_6_cores_raw_cena2, aes(x = cpu, y = frametime_ms, fill = cpu)) +
+  geom_boxplot() +
+  scale_fill_manual(values = c("AMD" = "red", "Intel" = "blue")) +
+  labs(title = "Variação de Frametime - AMD vs Intel",
+       subtitle = "6 cores Cena 2",
        x = "CPU", y = "Frametime (ms)", fill = "CPU") +
   coord_cartesian(ylim = c(0, NA)) +
   theme_minimal()
@@ -473,7 +499,15 @@ ggplot(raw_data_intel_10400f_6_cores, aes(x = cores, y = frametime_ms, fill = co
   geom_boxplot() +
   scale_fill_manual(values = c("6 cores" = "blue")) +
   labs(title = "Variação de Frametime - Intel",
+       subtitle = "6 cores Cena 1",
+       x = "Configuração", y = "Frametime (ms)", fill = "Cores") +
+  theme_minimal()
+ggplot(raw_data_intel_10400f_6_cores_cena2, aes(x = cores, y = frametime_ms, fill = cores)) +
+  geom_boxplot() +
+  scale_fill_manual(values = c("6 cores" = "blue")) +
+  labs(title = "Variação de Frametime - Intel",
+       subtitle = "6 cores Cena 2",
        x = "Configuração", y = "Frametime (ms)", fill = "Cores") +
   theme_minimal()
 ```
-É possivel ver grande diferença na performance apartir das arquiteturas provaelmente provida do AVX512.
+É possivel ver grande diferença na performance apartir das arquiteturas provavelmente provida do AVX512.
