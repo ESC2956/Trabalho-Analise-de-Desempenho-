@@ -17,7 +17,11 @@ output:
 lang: pt-BR
 ---
 
+# Abstração
 
+O presente trabalho analisa o desempenho do emulador de PlayStation 3 RPCS3 em diferentes configurações de hardware, utilizando o jogo The Last of Us como carga de trabalho, por sua alta exigência computacional. A métrica principal empregada foi o frametime, medido em ambiente controlado (NixOS) para isolar variações de hardware. Foram comparados dois processadores — AMD Ryzen 9 9900X e Intel Core i5-10400F — variando o número de núcleos ativos entre 6, 8 e 12.
+
+Os resultados mostram que a distribuição de carga entre mais núcleos reduz a variabilidade de frametime, com 12 núcleos apresentando maior estabilidade, embora outliers persistam mesmo nessa configuração — possivelmente associados à comunicação entre complexos de núcleos (CCDs) do Ryzen. Na comparação entre arquiteturas, o Ryzen 9 9900X apresentou desempenho 2,4x superior ao i5-10400F com o mesmo número de núcleos ativos, atribuído a maior IPC, suporte a AVX-512 e clock mais elevado.
 
 # Introdução 
 A emulação de hardware de arquiteturas diversas é um grande desafio na computação, mas um desafio que as comunidades open source rotinamente aceitam, principalmente para consoles de jogos, com o intuito de manter a biblioteca de software desses consoles preservada.
