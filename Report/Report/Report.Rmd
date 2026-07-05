@@ -93,6 +93,7 @@ Nota-se um grande número de outliers em 8 cores. Também podem ser notados em 1
 
 Na figura 5 nota-se que em comparação com o Ryzen 9 9900X, o i5 10400f tem uma utilização parecida, embora mais variada. Podemos notar na figura 7 que a mesma quantidade de trabalho não está sendo feita: os quadros estão sendo gerados em torno de 60 ms no i5 comparado a 25 ms no Ryzen, menos da metade do tempo para o mesmo número de cores. O aumento de IPC, a inclusão das instruções AVX512, muito utilizadas no RPCS3, e a frequência maior do Ryzen 9 9900X podem ser atribuídos a esse aumento de velocidade.
 
+A cena 2 apresenta um comportamento diferente da cena 1. Pode-se notar que existe uma limitação no uso tanto da CPU, por ter utilização mais baixa, quanto da GPU, que fica em torno de 50% invés de 70% como na cena 1. Uma investigação dos "gargalos" presentes na emulação de títulos que usam o hardware do Playstation 3 ao máximo poderia revelar mais informações sobre essa limitação.
 
 ```{r  message=FALSE, warning=FALSE, echo=FALSE}
 library(readr)
@@ -188,8 +189,11 @@ ggplot(all_6_cores_raw_long, aes(x = componente, y = uso, fill = cpu)) +
 
 all_amd_raw <- rbind(
   raw_data_amd_6_cores,
+  raw_data_amd_6_cores_cena2,
   raw_data_amd_8_cores,
-  raw_data_amd_12_cores
+  raw_data_amd_8_cores_cena2,
+  raw_data_amd_12_cores,
+  raw_data_amd_12_cores_cena2
 )
 
 all_amd_raw$cores <- factor(all_amd_raw$cores, levels = c("6 cores, c1", "8 cores, c1", "12 cores, c1", "6 cores, c2", "8 cores, c2", "12 cores, c2"))
