@@ -151,8 +151,8 @@ amd_cores_raw_long <- amd_cores_raw %>%
 
 ggplot(amd_cores_raw_long, aes(x = cores, y = uso, fill = cores)) +
   geom_boxplot(coef = 1.5) +
-  scale_fill_manual(values = c("6 cores, c1" = "red", "8 cores, c1" = "green", "12 cores, c1" = "blue", "6 cores, c2" = "yellow", "8 cores, c2" = "orange", "12 cores, c2" = "purple")) +
-  scale_x_discrete(labels = c("ppu_usage" = "PPU", "spu_usage" = "SPU"), limits = c("6 cores, c1", "8 cores, c1", "12 cores, c1","6 cores, c2", "8 cores, c2", "12 cores, c2")) +
+  scale_fill_manual(values = c("6 cores, c1" = "red", "6 cores, c2" = "yellow", "8 cores, c1" = "green", "8 cores, c2" = "orange", "12 cores, c1" = "blue", "12 cores, c2" = "purple")) +
+  scale_x_discrete(labels = c("ppu_usage" = "PPU", "spu_usage" = "SPU"), limits = c("6 cores, c1", "6 cores, c2", "8 cores, c1", "8 cores, c2", "12 cores, c1", "12 cores, c2")) +
   labs(title = "Uso de PPU e SPU Ryzen 9 9900X",
        subtitle = "Cena 1(c1) e cena 2 (c2)",
        x = "Cores", y = "Uso (%)", fill = "Cores") +
