@@ -212,7 +212,7 @@ ggplot(all_6_cores_raw_long, aes(x = cpu, y = frametime_ms, fill = cpu)) +
   labs(title = "Variação de Frametime por CPU com 6 cores ativos",
        x = "CPU", y = "Frametime (ms)", fill = "CPU") +
   coord_cartesian(ylim = c(0, NA)) +
-  theme_minimal()
+  theme_minimal() + theme(axis.text.x = element_text(size = 8))
 ```
 
 # References
